@@ -13,3 +13,7 @@ config_version=5
 config/name="Clase-metaprogramacion"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/always_on_top=true
