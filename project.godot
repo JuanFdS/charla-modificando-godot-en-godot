@@ -18,9 +18,12 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=512
 window/size/viewport_height=288
-window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/coso/plugin.cfg")
+enabled=PackedStringArray("res://addons/ruake/plugin.cfg")
+
+[physics]
+
+3d/default_gravity_vector=Vector3(0, 1, 0)

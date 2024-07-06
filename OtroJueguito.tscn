@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx5wwy4x6hnhg"]
+
+[ext_resource type="Texture2D" uid="uid://b0jgnee8w8hiu" path="res://assets/images/fondo/spr_battle_empty.png" id="1_6v7r6"]
+[ext_resource type="Theme" uid="uid://bf1wf8ifpgm3c" path="res://assets/Tema.tres" id="1_yn6kb"]
+[ext_resource type="Texture2D" uid="uid://btonkyy418yw2" path="res://assets/textures/gato.tres" id="2_3v71e"]
+[ext_resource type="Texture2D" uid="uid://dfstpx1qaehq4" path="res://assets/textures/pollo.tres" id="3_na72u"]
+[ext_resource type="Script" path="res://Dokimon.gd" id="4_6jmmr"]
+[ext_resource type="Script" path="res://BarraDeVida.gd" id="5_7hilr"]
+[ext_resource type="Script" path="res://Sprite.gd" id="6_dvh2k"]
+
+[sub_resource type="Gradient" id="Gradient_cawnw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hb8pu"]
+gradient = SubResource("Gradient_cawnw")
+width = 128
+height = 5
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(512, 288)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -144.0
+offset_right = 256.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yn6kb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(512, 288)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6v7r6")
+stretch_mode = 4
+
+[node name="Roberto" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_6jmmr")
+salud = 100
+
+[node name="Label2" type="Label" parent="Roberto"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 155.0
+offset_right = 391.0
+offset_bottom = 180.0
+text = "Roberto"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Roberto" node_paths=PackedStringArray("dokimon")]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 184.0
+offset_right = 493.0
+offset_bottom = 248.0
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_hb8pu")
+script = ExtResource("5_7hilr")
+dokimon = NodePath("..")
+
+[node name="TextureRect2" type="TextureRect" parent="Roberto"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 141.0
+offset_right = 181.0
+offset_bottom = 197.0
+texture = ExtResource("2_3v71e")
+
+[node name="Pollito" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_6jmmr")
+salud = -100
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Pollito" node_paths=PackedStringArray("dokimon")]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 31.0
+offset_right = 196.0
+offset_bottom = 95.0
+texture_progress = SubResource("GradientTexture2D_hb8pu")
+script = ExtResource("5_7hilr")
+dokimon = NodePath("..")
+
+[node name="Label" type="Label" parent="Pollito"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 3.0
+offset_right = 88.0
+offset_bottom = 28.0
+text = "Pollito"
+
+[node name="TextureRect3" type="TextureRect" parent="Pollito" node_paths=PackedStringArray("dokimon")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 75.0
+offset_right = 376.001
+offset_bottom = 131.0
+texture = ExtResource("3_na72u")
+script = ExtResource("6_dvh2k")
+dokimon = NodePath("..")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 219.0
+offset_right = 354.0
+offset_bottom = 259.0
+text = "Atacar"
+
+[connection signal="pressed" from="Button" to="Pollito" method="fui_atacado" binds= [40.0]]

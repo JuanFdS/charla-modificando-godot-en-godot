@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bf1wf8ifpgm3c"]
+
+[ext_resource type="FontFile" uid="uid://cnifeqotfcnm5" path="res://assets/font/Axolotl.ttf" id="1_k3q3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ueptr"]
+
+[resource]
+default_font = ExtResource("1_k3q3p")
+default_font_size = 30
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.422048, 0.00391842, 0.422996, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_ueptr")
+Button/styles/hover = SubResource("StyleBoxEmpty_ueptr")
+Button/styles/normal = SubResource("StyleBoxEmpty_ueptr")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ueptr")
+Label/colors/font_color = Color(0, 0, 0, 1)

@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk1mv6y33k2r6"]
+
+[ext_resource type="Theme" uid="uid://bf1wf8ifpgm3c" path="res://assets/Tema.tres" id="1_52xvt"]
+[ext_resource type="Texture2D" uid="uid://btonkyy418yw2" path="res://assets/textures/gato.tres" id="2_xqwsk"]
+[ext_resource type="Texture2D" uid="uid://c0857kwa4u42y" path="res://assets/textures/zanahoria.tres" id="3_tlrl6"]
+[ext_resource type="Texture2D" uid="uid://b0jgnee8w8hiu" path="res://assets/images/fondo/spr_battle_empty.png" id="4_fxeo6"]
+
+[sub_resource type="Gradient" id="Gradient_alcjd"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a53s2"]
+gradient = SubResource("Gradient_alcjd")
+width = 140
+height = 5
+
+[node name="Pruebita" type="Control"]
+custom_minimum_size = Vector2(512, 288)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -144.0
+offset_right = 256.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_52xvt")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 512.0
+offset_bottom = 288.0
+texture = ExtResource("4_fxeo6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MiDokimon" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SpriteDokimonMio" type="TextureRect" parent="MiDokimon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = 141.0
+offset_right = -331.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 28)
+texture = ExtResource("2_xqwsk")
+stretch_mode = 2
+
+[node name="Nombre" type="Label" parent="MiDokimon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 329.0
+offset_top = 156.0
+offset_right = -75.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rodolfo"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MiDokimon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 356.0
+offset_top = 183.0
+offset_right = -14.0
+offset_bottom = -100.0
+grow_horizontal = 0
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_a53s2")
+
+[node name="Atacar" type="Button" parent="MiDokimon"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 231.0
+offset_right = 354.0
+offset_bottom = 256.0
+text = "Atacar"
+
+[node name="Oponente" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SpriteDokimonOponente" type="TextureRect" parent="Oponente"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 323.0
+offset_top = 81.0
+offset_right = -133.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 28)
+texture = ExtResource("3_tlrl6")
+stretch_mode = 2
+
+[node name="Nombre2" type="Label" parent="Oponente"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 141.0
+offset_bottom = 44.0
+text = "Nabo"
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Oponente"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 29.0
+offset_right = -310.0
+offset_bottom = -254.0
+grow_horizontal = 0
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_a53s2")

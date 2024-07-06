@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://nnut3rn348fa"]
+
+[ext_resource type="FontFile" uid="uid://bmplsv5370eqa" path="res://assets/font/Yana5x5.ttf" id="1_qgmxd"]
+[ext_resource type="Script" path="res://Button.gd" id="2_dcv8s"]
+
+[sub_resource type="Theme" id="Theme_wfecb"]
+default_font = ExtResource("1_qgmxd")
+default_font_size = 50
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q76dv"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koj1y"]
+size = Vector2(183, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whgoq"]
+size = Vector2(158, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6hxh"]
+size = Vector2(531, 33)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wfecb")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(167, 98)
+physics_material_override = SubResource("PhysicsMaterial_q76dv")
+
+[node name="Label" type="Label" parent="RigidBody2D"]
+offset_left = -23.0
+offset_top = -8.0
+offset_right = 214.0
+offset_bottom = 23.0
+text = "Hola Mundo!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(81.5, 0.5)
+shape = SubResource("RectangleShape2D_koj1y")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 155.0
+offset_right = 255.0
+offset_bottom = 201.0
+text = "Clickeame"
+script = ExtResource("2_dcv8s")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Button"]
+position = Vector2(-97, -155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/StaticBody2D2"]
+position = Vector2(176, 176.5)
+shape = SubResource("RectangleShape2D_whgoq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(258, 252)
+shape = SubResource("RectangleShape2D_r6hxh")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-17, 237, -19, 263, 533, 265, 535, 240)
